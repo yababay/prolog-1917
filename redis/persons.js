@@ -1,6 +1,6 @@
 const redisc = require('./redisc.js');
 
-module.exports = close => redisc.keysAsync('wiki:*')
+module.exports = close => redisc.keysAsync('wiki:person:*')
     .then(keys => Promise.all(keys.map(key => redisc.hgetallAsync(key))))
     .then(persons => {
         if(close) redisc.quit()
