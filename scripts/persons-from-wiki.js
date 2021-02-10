@@ -2,7 +2,7 @@ const dotenv = require('dotenv').config()
 const axios = require('axios')
 const fs = require('fs')
 const translit = require('./translit')
-const redisc = require('./redisc.js')
+const redisc = require('./redisc')
 const wikiApiUrl = 'https://ru.wikipedia.org/w/api.php'
 
 function fetchPerson(person) {
@@ -66,7 +66,7 @@ function fetchPageProps(pageId) {
                     })
             }
             catch(err){
-                console.log(err)
+                console.log(line + ': ' + err)
             }
         }
         redisc.quit()
